@@ -6,6 +6,10 @@
   <input type="submit" value="Buscar" />
 </form>
 
+<%
+if (quizes.length) {
+%>
+
 <ul>
   <% for(var i=0; i < quizes.length; i++) { %>
     <li>
@@ -15,3 +19,14 @@
     </li>
   <% } %>
 </ul>
+
+<%
+}
+else {
+%>
+
+<p>Lo sentimos, no hay preguntas para mostrar</p>
+
+<%
+}
+%>

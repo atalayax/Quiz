@@ -51,7 +51,7 @@ exports.pregunta = function(req, res) {
 /* GET /quizes/:id/respuesta */
 exports.respuesta = function(req, res) {
   var resultado = "Incorrecto";
-  if (req.query.respuesta && req.query.respuesta.toLowerCase() === quiz.respuesta.toLowerCase()) {
+  if (req.query.respuesta && req.query.respuesta.toLowerCase() === req.quiz.respuesta.toLowerCase()) {
     resultado = "Correcto!";
   }
   res.render(
