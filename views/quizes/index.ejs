@@ -1,3 +1,13 @@
+<form method="get" action="">
+  <label for="search">Buscar pregunta: </label>
+  <input type="text" name="search" />
+  <input type="submit" value="Buscar" />
+</form>
+
+<%
+if (quizes.length) {
+%>
+
 <ul>
   <% for(var i=0; i < quizes.length; i++) { %>
     <li>
@@ -7,3 +17,14 @@
     </li>
   <% } %>
 </ul>
+
+<%
+}
+else {
+%>
+
+<p>Los sentimos, no hay preguntas que coincidan con los términos de búsqueda introducidos.</p>
+
+<%
+}
+%>
