@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 router.get('/quizes', quizController.index),
 
 /* GET página de pregunta */
-router.get('/quizes/:quizId(\\d+)', quizController.index);
+router.get('/quizes/:quizId(\\d+)', quizController.pregunta);
 
 /* GET página de respuesta */
 router.get('/quizes/:quizId(\\d+)/respuesta', quizController.respuesta);
