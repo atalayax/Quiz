@@ -35,3 +35,8 @@ nav span, footer span {
 a {
   color: #00B7FF;
 }
+
+#errorMsgs {
+  color: red;
+  font-size: smaller;
+}
