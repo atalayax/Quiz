@@ -11,14 +11,12 @@ router.get('/', function(req, res) {
 /* Autoload de comandos con :quizID */
 router.param("quizId", quizController.load);
 
-/* GET lista de preguntas */
+/* Definición de ruta de quizes */
 router.get('/quizes', quizController.index);
-
-/* GET página de pregunta */
 router.get('/quizes/:quizId(\\d+)', quizController.pregunta);
-
-/* GET página de respuesta */
 router.get('/quizes/:quizId(\\d+)/respuesta', quizController.respuesta);
+router.get('/quizes/nueva', quizController.nueva);
+router.post('/quizes/crear', quizController.crear);
 
 /* GET página de créditos */
 router.get('/autor', function(req, res) {

@@ -59,3 +59,24 @@ exports.respuesta = function(req, res) {
     { quiz: req.quiz, respuesta: resultado}
   );
 };
+
+
+/* GET /quizes/nueva */
+exports.nueva = function(req, res) {
+  res.render('quizes/nueva');
+};
+
+/* POST /quizes/crear */
+exports.crear = function(req, res) {
+  var quiz = models.Quiz.build(req.body.quiz);
+  if (quiz.pregunta && quiz.respuesta) {
+    quiz.save(
+      {fields: ["pregunta", "respuesta"]}
+    ).then(function() {
+      res.redirect('/quizes');
+    });
+  }
+  else {
+    res.redirect('nueva');
+  }
+};
