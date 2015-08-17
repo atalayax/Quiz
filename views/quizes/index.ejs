@@ -16,6 +16,9 @@ if (quizes.length) {
       <a href="/quizes/<%= quizes[i].id %>">
         <%= quizes[i].pregunta %>
       </a>
+      <a href="/quizes/<%= quizes[i].id %>/editar">
+        <button>Editar</button>
+      </a>
     </li>
   <% } %>
 </ul>
