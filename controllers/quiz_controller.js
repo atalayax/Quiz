@@ -118,3 +118,14 @@ exports.actualizar = function(req, res) {
     });
   }
 };
+
+/* DELETE /quizes/:id */
+exports.borrar = function(req, res) {
+  req.quiz.destroy()
+  .then(function() {
+    res.redirect('/quizes');
+  })
+  .catch(function(error) {
+    next(error);
+  });
+};
