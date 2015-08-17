@@ -22,7 +22,7 @@ exports.index = function(req, res) {
     models.Quiz.findAll({where: ["pregunta like ?", search]}).then(function(quizes) {
       res.render(
         "quizes/index",
-        { quizes: quizes, errors: []}
+        { quizes: quizes, errors: [] }
       );
     }).catch(function(error) {
       next(error);
@@ -82,7 +82,7 @@ exports.crear = function(req, res) {
   else {
     quiz
     .save(
-      {fields: ["pregunta", "respuesta"]}
+      {fields: ["pregunta", "respuesta", "tema"]}
     )
     .then(function() {
       res.redirect('/quizes');
@@ -100,6 +100,7 @@ exports.editar = function(req, res) {
 exports.actualizar = function(req, res) {
   req.quiz.pregunta = req.body.quiz.pregunta;
   req.quiz.respuesta = req.body.quiz.respuesta;
+  req.quiz.tema = req.body.quiz.tema;
   var errors = req.quiz.validate();
   if (errors) {
     var errorArray = [];
@@ -111,7 +112,7 @@ exports.actualizar = function(req, res) {
   else {
     req.quiz
     .save(
-      {fields: ["pregunta", "respuesta"]}
+      {fields: ["pregunta", "respuesta", "tema"]}
     )
     .then(function() {
       res.redirect('/quizes');

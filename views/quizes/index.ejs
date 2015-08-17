@@ -25,11 +25,12 @@ if (quizes.length) {
       </td>
       <td>
         <form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">
-          <button type="submit" onclick="return confirm('Borrar: <%= quizes[i].pregunta %>')">
+          <button type="submit" onclick="return confirm('Borrar: \u201C<%= quizes[i].pregunta %>\u201C')">
             Borrar
           </button>
         </form>
       </td>
+      <td><%= quizes[i].tema %></td>
     </tr>
   <% } %>
 </table>
